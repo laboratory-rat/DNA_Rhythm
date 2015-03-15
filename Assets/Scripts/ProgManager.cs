@@ -19,28 +19,27 @@ public class ProgManager : MonoBehaviour {
         }
     }
 
-    public DNA_Data data;
+    public DNA_Data Data;
 
-    private string DataDir = "Data";
+    private SaveLoad saveLoad;
+
+    public readonly string DataDir = "Data/";
+    public readonly string ProjectsDir = "Projects/";
 
     void Awake()
     {
         _instance = this;
 
         if (!Directory.Exists(DataDir)) Directory.CreateDirectory(DataDir);
+        if (!Directory.Exists(ProjectsDir)) Directory.CreateDirectory(ProjectsDir);
     }
-}
 
-[System.Serializable]
-public class DNA_Data
-{
-    public string ProjectName;
-    public string DNA_String;
-    public string[] Triplets;
-
-    public DNA_Data(string name, string data)
+    public void NewData(string name, string data)
     {
-        ProjectName = name;
-        DNA_String = data;
+        Data = new DNA_Data(name, data);
+        Debug.Log("Data: " + data);
+        saveLoad = new SaveLoad(ProjectsDir);
+        saveLoad.SaveProject(Data.ProjectName, Data, false);
+        if (!saveLoad.success) Debug.LogError("Невозможно сохранить файл!");
     }
 }

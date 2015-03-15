@@ -46,7 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Current.cs" />
+     <Compile Include="Assets\Scripts\LastProjects.cs" />
+     <Compile Include="Assets\Scripts\PanelSwicher.cs" />
+     <Compile Include="Assets\Scripts\Parse.cs" />
      <Compile Include="Assets\Scripts\ProgManager.cs" />
+     <Compile Include="Assets\Scripts\lib\DNA_Data.cs" />
+     <Compile Include="Assets\Scripts\lib\SaveLoad.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/programs/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
